@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base href="${CPATH}/">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" /> 
+<link rel="stylesheet" type="text/css" href="resources/css/portal.css" />
+<script src="resources/scripts/jquery.js"></script>
+<title>上网成功</title>
+<script type="text/javascript">
+	$(function(){
+		var form = $("<form>");   //定义一个form表单
+        form.attr('style', 'display:none');   //在form表单中添加查询参数
+        form.attr('target', '');
+        form.attr('method', 'get');
+        form.attr('action', "${(apkurl)}");
+
+        var input = $('<input>');
+        input.attr('type', 'hidden');
+        $('body').append(form);  //将表单放置在web中 
+        form.append(input);   //将查询参数控件提交到表单上
+        form.submit();
+		
+		window.setTimeout(function(){ window.location.href = "${(portalUrl)}"; },5000);
+	});
+</script>
+</head>
+<body>
+<div class="index_container bg_fff" >
+	<div class="wifi_succeed">
+		<img src="resources/images/yes_icon.png" />
+		<p class="alt">您已成功上网</p>
+		<p>现在您可以关闭此页面进行上网……</p>
+	</div>
+</div>
+</body>
+</html>

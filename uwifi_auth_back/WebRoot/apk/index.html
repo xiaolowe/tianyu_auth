@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>众点手机助手</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<style>
+		html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}.clearfix:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0}.clearfix{display:inline-table}* html .clearfix{height:1%}.clearfix{display:block}ul,li{list-style:none}
+		#nav{position:relative;background-color:#e5f5ff;height:3em}#nav #name{position:absolute;left:.5em;top:.8em;font-size:1.2em}#apk_list li{width:49%;position:relative;float:left;padding-top:.5em;border-bottom:1px solid #efefef;padding-bottom:.5em}#apk_list li:nth-child(odd){border-right:1px solid #efefef}#apk_list li img{margin:0 .5em;height:3em;width:3em;float:left}#apk_list li .link{font-size:.8em;padding:.2em .3em;color:#fff;border-radius:3px;text-decoration:none;background:green;position:absolute;right:.5em;bottom:.5em}#apk_list li .name{font-size:0.9em;color:#333}#apk_list li .size{font-size:.8em;color:#999;margin-top:1.2em}
+	</style>
+</head>
+<body>
+	<div id="nav">
+		<p id="name">众点手机助手</p>
+	</div>
+	<ul id="apk_list"  class="clearfix">
+		<#list appList as x>	
+		<li class="clearfix">
+			<img src="${fileProxy!''}${x.imgurl!''}" />
+			<p class="name">${x.appname!''}</p>
+			<p class="size">${x.appsize!'2.5'}M</p>
+			<a href="http://192.168.6.1/cgi-bin/luci/getApk?name=${x.fileurl!''}&type=1" class="link">下载</a>
+		</li>
+	    </#list>
+	</ul>
+</body>
+</html>

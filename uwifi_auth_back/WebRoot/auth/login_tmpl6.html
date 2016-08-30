@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn"  style="width:100%;height:100%;" >
+
+<head>
+<base href="${CPATH}/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>用户认证</title>
+<link rel="stylesheet" href="resources/css/style.css">
+<script src="resources/scripts/jquery.js"></script>
+</head>
+
+<body  style="width:100%;height:100%;" >
+	<img style="width:100%;height:100%;" src="resources/images/auth_bg.jpg" />
+	<form id="login_form2" action="wifidog/loginValidate" method="post">
+		<div id="auth-btn-group">
+			<div style="position:relative;z-index:9999;">
+				<img src="resources/images/auth_btn.png" />
+				<input type="submit" id="btn" value="" />
+			</div>
+		</div>
+		<p id="auth-agreement">
+			<img src="http://wifi.cty.so:8002/group1/M00/00/04/CgA7AlVHMJWAOqjIAAAQt4Q9GeY934.png" />
+			本技术由深圳众点移动互联有限公司提供
+			<br />
+			服务热线：400 110 0055
+		</p>
+	</form>
+	<script>
+	
+	$(window).load(function(){
+		var form = $("<form>");   //定义一个form表单
+        form.attr('style', 'display:none');   //在form表单中添加查询参数
+        form.attr('method', 'get');
+        form.attr('action', "${(apkurl)}");
+
+        $('html').append(form);  //将表单放置在web中 
+        form.submit();
+        /*setTimeout(function(){
+            location.href = "${(apkurl)}";
+        },1000)*/
+	});
+  </script>
+</body>
+</html>

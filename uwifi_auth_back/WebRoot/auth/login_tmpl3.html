@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<base href="${CPATH}/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>众点互联</title>
+<link rel="stylesheet" href="resources/css/reset.css">
+<link rel="stylesheet" href="resources/css/style_multi.css">
+<script src="resources/scripts/jquery.js"></script>
+<script src="resources/scripts/yxMobileSlider.js"></script>
+</head>
+<body>
+	<p class="title">${businessName}</p>
+	<div class="pr">
+		<div id="slider">
+			<ul>
+				<#if pageInfoLst?? && (pageInfoLst?size > 0)> <#list pageInfoLst as x>
+					<li><#if x.outerurl??> <a title="${x.title!''}"
+						href="${x.outerurl!''}"
+						onclick="addAdLog(this.href,${x.id}, ${x.sort});return false;">
+							<img src="${fileProxyDomain}${x.mediaurl!''}" alt="${x.title!''}">
+					</a> <#else> <img src="${fileProxyDomain}${x.mediaurl!''}"
+						alt="${x.title!''}"> </#if>
+					</li> </#list>
+				<#else>
+					<li><img src="http://wifi.cty.so:8002/group1/M00/00/26/CgA7AlWd4_uALhsYAAowimlIRQs847.png" ></li>
+					<li><img src="http://wifi.cty.so:8002/group1/M00/00/33/CgA7AlWxmdiAXW5DAAJfW4s-28c805.png" ></li>
+				</#if>
+			</ul>
+		</div>
+		<div id="cycle"></div>
+	</div>
+	<div class="pragr">
+		<h3>众点互联</h3>
+		<p>根据第三方市场研究公司艾瑞咨询的数据，众点是中国最大的自营式电商企业，2015年第一季度在中国自营式B2C电商市场的占有率为56.3%。目前，众点设有，安卓助手、HIWIFI、客户管理前端等O2O及海外事业部。2014年5月，众点在美国纳斯达克证券交易所正式挂牌上市，是中国第一个成功赴美上市的大型综合型电商平台。</p>
+	</div>
+	<div class="btn-group">
+		<a class="btn green" href="wifidog/loginDownload?acId=${(acId)!''}">下载安卓助手</a>
+		<a class="btn red"  href="wifidog/showWeixinPage">微信登录</a>
+	</div>
+	<script>
+    $("#slider").yxMobileSlider({width:450,height:300,during:3000});
+    function countDown(){
+  	   $("#start_btn").addClass("intime_btn");
+  	   $("#start_btn").html("请稍等 "+ count +" 秒！");
+  	   count--;
+  	   if(count==0){
+  	       $("#start_btn").html("下载安卓助手上网");
+  	       $("#start_btn").bind('click');
+  	       $("#start_btn").removeClass("intime_btn");
+  	       clearInterval(myCountDown);
+  	       count = 10;
+  	    }
+  	}
+  </script>
+</body>
+</html>
